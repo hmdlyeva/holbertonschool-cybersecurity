@@ -1,3 +1,3 @@
 #!/bin/bash
-journalctl -u ssh --since "30 minutes ago"
+journalctl -u sshd --since "30 minutes ago"
 
