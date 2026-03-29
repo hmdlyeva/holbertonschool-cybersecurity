@@ -1,3 +1,3 @@
 #!/bin/bash
-diff <(cut -d: -f1 /etc/passwd) <(cut -d: -f1 /etc/passwd | sort)
+diff <(cut -d: -f1 $1) <(cut -d: -f1 $1 | sort)
 

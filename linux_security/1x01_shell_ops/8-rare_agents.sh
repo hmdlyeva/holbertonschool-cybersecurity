@@ -1,3 +1,3 @@
 #!/bin/bash
-awk -F\" '{print $6}' /var/log/analysis/access.log | sort | uniq -c | awk '$1 < 10 {print $2}'
+awk -F\" '{print $6}' $1 | sort | uniq -c | awk '$1 < 10 {print $2}'
 

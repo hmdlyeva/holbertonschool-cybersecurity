@@ -6,5 +6,5 @@ while read u; do
   else
     echo "User $u not found"
   fi
-done < /opt/hr/to_delete.txt
+done < $1
 
