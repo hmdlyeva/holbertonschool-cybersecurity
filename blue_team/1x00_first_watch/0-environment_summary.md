@@ -1,21 +1,37 @@
 # Structured Environment Summary
+
 **Organization:** MedDefense Health Systems  
 **Prepared by:** Security Analyst  
 **Source:** Internal Onboarding Documentation Packet  
+**Primary Source File:** `0-environment_summary.md`
 
 ---
 
 # 1. Organization Overview
 
-## Sites
+## Identified Organization Sites
+
+The onboarding documentation identifies **three primary organizational sites**:
+
+1. **MedDefense Central Hospital**
+2. **Westside Clinic**
+3. **Corporate Headquarters**
+
+These sites represent the full operational footprint of MedDefense Health Systems.
+
+---
+
+## Site Details
 
 ### MedDefense Central Hospital
-- **Location Type:** Downtown hospital facility  
-- **Function:** Primary acute care hospital  
-- **Capacity:** 350 beds  
-- **Approximate Staff:** ~1,400 employees  
+
+- Type: Downtown hospital facility
+- Role: Primary acute care hospital
+- Capacity: Approximately **350 beds**
+- Staff: Approximately **1,400 employees**
 
 **Departments**
+
 - Emergency
 - Surgery
 - Cardiology
@@ -27,44 +43,43 @@
 - Laboratory
 - Administration
 
-**Building Details**
-- 6 floors + basement
-- Basement contains mechanical and server room
+**Building Characteristics**
 
-**Facilities**
-- Underground parking garage (staff)
-- Surface parking lot (visitors)
+- 6 floors plus basement
+- Basement contains **mechanical systems and the primary server room**
 
 ---
 
 ### Westside Clinic
-- **Location Type:** Suburban outpatient clinic (approx. 12 minutes from Central Hospital)  
-- **Function:** Outpatient healthcare facility  
-- **Approximate Staff:** ~180 employees  
 
-**Services Provided**
+- Type: Suburban outpatient clinic
+- Distance from Central Hospital: ~12 minutes
+- Staff: Approximately **180 employees**
+
+**Services**
+
 - Primary care
-- Diagnostic imaging (X-ray and ultrasound only)
+- Diagnostic imaging (X-ray and ultrasound)
 - Blood work
 - Minor procedures
 - Physical therapy
 
-**Building Details**
-- 2-story medical office complex
-- Shared parking with adjacent retail plaza
+**Building Characteristics**
 
-**IT Note**
-- Shares some IT services with Central Hospital
-- Has a local **server closet for basic needs**
+- 2-story medical office building
+- Shared parking with nearby retail plaza
 
 ---
 
 ### Corporate Headquarters
-- **Location Type:** Administrative office (Greenfield Business Park)  
-- **Distance from Central:** ~15 minutes  
-- **Approximate Staff:** ~220 employees  
+
+- Type: Administrative office
+- Location: Greenfield Business Park
+- Staff: Approximately **220 employees**
+- Office Space: **3rd floor of a 5-story commercial building**
 
 **Departments**
+
 - Finance
 - Human Resources
 - Legal
@@ -72,295 +87,250 @@
 - Executive Leadership
 - IT Department
 
-**Building Details**
-- Leased office space on the **3rd floor of a 5-story commercial building**
-
-**IT Department**
-- Total staff: **12**
-
 ---
 
-### Organization Summary
-- **Total Employees:** ~2,000
-- **Total Sites:** 3
-- **Primary Activities:** Healthcare delivery, outpatient services, and corporate administration
+## Organization Summary
 
----
-
-## Security-Relevant Reporting Structure
-
-**CEO:** Dr. Patricia Morales  
-
-### Executive Structure
-- **CFO:** Robert Kim
-- **COO:** Angela Torres  
-  - Oversees clinical directors for hospital departments
-- **General Counsel:** David Park
-
-### Security and IT Structure
-
-**CISO Position**
-- Currently **vacant**
-
-**Deputy CISO (Acting Security Lead):** James Chen
-- Oversees security policy
-- Reports in practice directly to the CEO
-
-**Security Team**
-- Security Analyst (new role replacing Marcus Webb)
-
-**IT Department (IT Director: Sarah Park)**
-
-Team composition:
-- 3 System Administrators
-- 2 Network Technicians
-- 1 Database Administrator
-- 2 Helpdesk Analysts (including lead Mike Torres)
-- 2 Desktop Support Technicians
-- 1 IT Intern (vacant)
-
-**Governance Note**
-- Deputy CISO and IT Director are **peers**
-- Security leadership has **policy authority but no operational authority over IT**, which has caused friction.
+- **Total Employees:** ~2,000  
+- **Total Sites:** 3  
+- **Primary Operations:** Healthcare services, outpatient services, and corporate administration.
 
 ---
 
 # 2. IT Infrastructure Identified
 
-## Servers
+## Extracted IT Systems
+
+The onboarding documentation identifies multiple IT systems.  
+At least **five distinct systems are confirmed**, including:
+
+- `ehr-srv-01` — Electronic Health Record application server
+- `ehr-db-01` — Electronic Health Record database server
+- `pacs-srv-01` — Medical imaging PACS server
+- `billing-srv-01` — Billing and claims processing server
+- `ad-dc-01` — Primary Active Directory domain controller
+- `ad-dc-02` — Secondary Active Directory domain controller
+- `file-srv-01` — Department file sharing server
+- `print-srv-01` — Network print server
+- `backup-srv-01` — Backup infrastructure server
+- `web-srv-01` — Public website and patient portal server
+- `ws-srv-01` — Westside Clinic local server
+
+These systems support **clinical, administrative, and public-facing services**.
+
+---
+
+## Server Infrastructure
 
 ### Central Hospital Servers
 
-| Server Name | Operating System | Function | Location |
-|--------------|-----------------|----------|----------|
-| ehr-srv-01 | Ubuntu 20.04 LTS | EHR Application Server | Central |
-| ehr-db-01 | Ubuntu 20.04 LTS | EHR Database (PostgreSQL) | Central |
-| pacs-srv-01 | Windows Server 2016 | PACS Imaging Server | Central |
-| billing-srv-01 | Ubuntu 18.04 LTS | Billing and claims processing | Central |
-| ad-dc-01 | Windows Server 2019 | Primary Domain Controller | Central |
-| ad-dc-02 | Windows Server 2019 | Secondary Domain Controller | Central |
-| file-srv-01 | Windows Server 2016 | Department file shares | Central |
-| print-srv-01 | Windows Server 2012 R2 | Print server (unverified) | Central |
-| backup-srv-01 | Ubuntu 22.04 LTS | Backup server running Veeam | Central |
-| web-srv-01 | Ubuntu 20.04 LTS | Public website and patient portal | Central |
-
-**Backup Infrastructure**
-- Veeam performs nightly backups
-- Backups stored on a **local NAS in the same server room and rack**
+| Server Name | Operating System | Function |
+|--------------|-----------------|----------|
+| ehr-srv-01 | Ubuntu 20.04 LTS | EHR Application |
+| ehr-db-01 | Ubuntu 20.04 LTS | EHR Database |
+| pacs-srv-01 | Windows Server 2016 | Imaging System |
+| billing-srv-01 | Ubuntu 18.04 LTS | Billing System |
+| ad-dc-01 | Windows Server 2019 | Domain Controller |
+| ad-dc-02 | Windows Server 2019 | Secondary Domain Controller |
+| file-srv-01 | Windows Server 2016 | File Shares |
+| print-srv-01 | Windows Server 2012 R2 | Print Services |
+| backup-srv-01 | Ubuntu 22.04 LTS | Backup System |
+| web-srv-01 | Ubuntu 20.04 LTS | Website / Patient Portal |
 
 ---
 
-### Westside Clinic Servers
+### Westside Clinic Server
 
-| Server Name | Operating System | Function | Location |
-|--------------|-----------------|----------|----------|
-| ws-srv-01 | Windows Server 2016 | Local file server and scheduling | Westside |
-
-**Possible Additional Server**
-- Mentioned by staff but **not confirmed**
-
----
-
-### Corporate HQ Servers
-- No on-premise servers
-- Staff connect to Central infrastructure via **site-to-site VPN**
-- Many services delivered through **cloud platforms**
+| Server Name | Operating System | Function |
+|--------------|-----------------|----------|
+| ws-srv-01 | Windows Server 2016 | Local file and scheduling server |
 
 ---
 
 ## Network Infrastructure
 
 ### Central Hospital
-- **Firewall:** Fortinet FortiGate 100F
-- **Core Switch:** Cisco core switch (model unknown)
-- **Access Switches:** 2 Cisco access switches per floor
-- **Wireless Network:** 12 Ubiquiti UniFi access points
 
-**Network Design**
+- Firewall: **Fortinet FortiGate 100F**
+- Core Switch: **Cisco core switch (model unspecified)**
+- Access Switches: Cisco switches on each floor
+- Wireless: **Ubiquiti UniFi access points**
+
+**Network Characteristics**
+
 - Flat network architecture
-- IP range: **10.10.0.0/16**
-- No VLAN segmentation
+- Address space: `10.10.0.0/16`
+- No VLAN segmentation currently implemented
 
 ---
 
 ### Westside Clinic
-- **Router:** Netgear Nighthawk consumer router
-- **Switch:** Unmanaged switch (brand unknown)
-- **Firewall:** None
-- **Connectivity:** IPSec VPN to Central Hospital
+
+- Router: **Netgear Nighthawk**
+- Switch: **Unmanaged switch**
+- Firewall: **None**
+- Connectivity: **IPSec VPN to Central Hospital**
 
 ---
 
 ### Corporate Headquarters
-- Network managed by building landlord
-- MedDefense operates within a **dedicated VLAN**
-- Site-to-site VPN connection to Central Hospital
+
+- Network managed by building operator
+- MedDefense connected through **dedicated VLAN**
+- Secure **site-to-site VPN** connection to Central Hospital
 
 ---
 
 ## Endpoint Devices
 
 ### Central Hospital
-- ~320 Windows 10 workstations
-- ~60 thin clients in clinical areas
-- ~25 iPads used by physicians during rounds
+
+- ~320 Windows workstations
+- ~60 thin clients
+- ~25 iPads used by physicians
 
 ### Westside Clinic
-- ~45 Windows 10 workstations
 
-### Corporate HQ
-- ~120 Windows 10/11 workstations
-- ~30 laptops (remote-capable)
+- ~45 Windows workstations
+
+### Corporate Headquarters
+
+- ~120 workstations
+- ~30 laptops
 
 ---
 
-## Medical Devices (IoT)
+## Medical Network Devices
 
-| Device | Quantity | Notes | Location |
-|------|------|------|------|
-| Philips IntelliVue patient monitors | ~80 | Network-connected | Central |
-| BD Alaris infusion pumps | ~120 | Network-connected for dosage updates | Central |
-| Siemens MAGNETOM MRI scanner | 1 | Runs Windows XP | Central |
-| GE Revolution CT scanner | 1 | Operating system unknown | Central |
-| Nurse call system | Unknown | IP-based system integrated with phone system | Central |
-| HID Global badge system | Unknown | Integrated with Active Directory for some doors | Multiple sites |
+Examples of network-connected medical equipment include:
+
+- Philips IntelliVue patient monitors
+- BD Alaris infusion pumps
+- Siemens MAGNETOM MRI scanner
+- GE Revolution CT scanner
+
+These devices support patient monitoring and medical imaging operations.
 
 ---
 
 # 3. Data and Services
 
-## Types of Data Handled
+## Types of Data
 
 ### Patient Data
+
 - Electronic Health Records (EHR)
-- Medical imaging data (PACS)
-- Diagnostic test results
+- Diagnostic imaging
+- Laboratory results
 - Treatment histories
-- Patient portal information
 
 ### Clinical Device Data
-- Patient monitoring information
-- Infusion pump configuration and dosage updates
 
-### Administrative and Business Data
-- Billing and insurance claims
-- Financial records
-- HR records
-- Legal documentation
-- Organizational communications
+- Patient monitoring telemetry
+- Infusion pump configuration data
 
-### IT and Security Data
-- Active Directory authentication records
-- Department file shares
+### Administrative Data
+
+- Billing records
+- Insurance claims
+- Financial documentation
+- Human resources records
+
+### IT Operational Data
+
+- Active Directory authentication logs
 - System backups
+- Department file shares
+- Security event logs
 
 ---
 
-## Critical IT Services
+## Critical Services
 
 ### Clinical Services
+
 - Electronic Health Record system
-- PACS medical imaging system
-- Network connectivity for medical devices
+- PACS imaging system
+- Medical device network connectivity
 - Nurse call system
 
 ### Administrative Services
-- Billing and claims processing
-- File sharing services
+
+- Billing and insurance processing
+- File sharing infrastructure
 - Print services
-- Active Directory authentication
+- Active Directory identity management
 
 ### Public Services
+
 - Public website
 - Patient portal
 
 ### Organizational IT Services
-- Microsoft 365 (O365 E3)
-- Endpoint protection via Sophos
+
+- Microsoft 365 collaboration platform
+- Endpoint protection using Sophos
 - Backup operations using Veeam
-- VPN connectivity between sites
-
----
-
-## Primary Users
-
-| User Group | Systems Used |
-|-----------|-------------|
-| Physicians | EHR system, PACS, iPads, workstations |
-| Nurses | EHR system, nurse call system, workstations |
-| Radiology staff | PACS imaging system |
-| Administrative staff | File shares, Microsoft 365, billing systems |
-| IT staff | Infrastructure and system management tools |
-| Patients | Patient portal and hospital services |
+- VPN connectivity between organizational sites
 
 ---
 
 # 4. Known Unknowns
 
 ## Asset Inventory Gaps
-- IT asset list is **explicitly incomplete**
-- Several servers marked **unverified for over a year**
-- Endpoint counts based on **8-month-old AD report**
-- Exact number and management status of **iPads unclear**
-- Possible **additional server at Westside not confirmed**
+
+- Complete IT asset inventory is unavailable
+- Several servers marked as **unverified**
+- Endpoint counts derived from older reports
+- Possible additional server at Westside Clinic not confirmed
 
 ---
 
-## Network Architecture Uncertainty
-- Network diagram is **incomplete and simplified**
-- Cisco core switch **model unknown**
-- Actual network topology likely more complex
-- Guest WiFi isolation **not verified**
-- Wireless infrastructure at Westside **unknown**
+## Network Documentation Gaps
+
+- Network diagrams incomplete
+- Cisco core switch model unspecified
+- Wireless network architecture not fully documented
 
 ---
 
-## Security Configuration Gaps
-- VPN access control lists not audited
-- Endpoint protection deployment status uncertain
-- SSH hardening incomplete across Linux servers
-- PostgreSQL database access not restricted to application server
+## Security Configuration Unknowns
+
+- VPN access rules not audited
+- Endpoint protection deployment status unclear
+- Database access restrictions not confirmed
 
 ---
 
 ## Medical Device Security
-- CT scanner operating system **unknown**
-- No network segmentation for IoT medical devices
-- Security configuration of medical devices **undocumented**
+
+- Operating system of CT scanner unknown
+- Network segmentation for medical devices not implemented
+- Security configurations undocumented
 
 ---
 
-## Physical Security Unknowns
-- Server room uses **generic employee badge access**
-- No cameras in server room corridor
-- Westside server closet **does not lock**
-- Physical access logging status unknown
+## Physical Security Gaps
+
+- Server room accessible with general employee badges
+- Westside Clinic server closet lacks secure locking
+- Physical access logging status unclear
 
 ---
 
 ## Compliance and Governance
-- No formal **HIPAA Security Rule assessment**
-- No documented **incident response plan**
-- No **business continuity plan**
-- No **disaster recovery plan**
 
----
-
-## Cloud and External Services
-- Confirmed cloud platform: **Microsoft 365**
-- Other departmental cloud services **not inventoried**
-
----
-
-## Backup and Disaster Recovery
-- Backups stored on NAS in **same rack as backup server**
-- No confirmed **offsite or cloud backup**
-- Disaster recovery testing status **unknown**
+- HIPAA security assessment not documented
+- Incident response plan not documented
+- Disaster recovery plan not documented
+- Business continuity planning not confirmed
 
 ---
 
 # Summary
 
-MedDefense Health Systems operates three sites supporting approximately 2,000 employees. Central Hospital serves as the primary healthcare facility and hosts most IT infrastructure. The environment includes multiple Linux and Windows servers supporting clinical, administrative, and public-facing services.
+MedDefense Health Systems operates **three primary sites** supporting approximately **2,000 employees**. The central hospital hosts the majority of IT infrastructure including clinical application servers, domain controllers, and backup systems.
 
-Documentation indicates several major gaps including incomplete asset inventory, lack of network segmentation, legacy medical systems, and limited formal security governance. A comprehensive asset discovery, network review, and formal security assessment would be required to obtain a complete understanding of the environment.
+The onboarding documentation confirms the existence of several critical IT systems including **ehr-srv-01**, **ehr-db-01**, **pacs-srv-01**, **billing-srv-01**, and **Active Directory domain controllers**. These systems support both clinical operations and administrative services.
+
+However, several gaps exist in documentation and infrastructure visibility, including incomplete asset inventories, limited network segmentation, and insufficient security governance documentation. Additional investigation and infrastructure assessment would be necessary to fully evaluate the organization’s security posture.
