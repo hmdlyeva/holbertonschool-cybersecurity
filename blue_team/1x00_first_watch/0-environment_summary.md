@@ -329,8 +329,23 @@ These devices support patient monitoring and medical imaging operations.
 
 # Summary
 
-MedDefense Health Systems operates **three primary sites** supporting approximately **2,000 employees**. The central hospital hosts the majority of IT infrastructure including clinical application servers, domain controllers, and backup systems.
+The onboarding documentation for **MedDefense Health Systems** identifies **three primary organizational sites**:
 
-The onboarding documentation confirms the existence of several critical IT systems including **ehr-srv-01**, **ehr-db-01**, **pacs-srv-01**, **billing-srv-01**, and **Active Directory domain controllers**. These systems support both clinical operations and administrative services.
+- **MedDefense Central Hospital**
+- **Westside Clinic**
+- **Corporate HQ**
 
-However, several gaps exist in documentation and infrastructure visibility, including incomplete asset inventories, limited network segmentation, and insufficient security governance documentation. Additional investigation and infrastructure assessment would be necessary to fully evaluate the organization’s security posture.
+These locations represent the operational structure of the organization and support healthcare delivery, outpatient services, and corporate administration for approximately **2,000 employees**.
+
+The documentation also identifies multiple **distinct IT systems** that support the organization’s infrastructure. Examples of these systems include:
+
+- **ehr-srv-01** – Electronic Health Record (EHR) application server  
+- **ehr-db-01** – Electronic Health Record database server  
+- **pacs-srv-01** – Medical imaging PACS server  
+- **billing-srv-01** – Billing and claims processing server  
+- **ad-dc-01** – Primary Active Directory domain controller  
+- **ad-dc-02** – Secondary Active Directory domain controller  
+
+These systems provide critical functionality for **clinical services, identity management, imaging systems, and financial operations** across the organization.
+
+Overall, the onboarding packet confirms the presence of **three sites and multiple IT infrastructure systems** supporting both clinical and administrative services. However, the documentation also indicates several areas where information is incomplete, including asset inventory accuracy, network architecture documentation, and certain security configuration details.
