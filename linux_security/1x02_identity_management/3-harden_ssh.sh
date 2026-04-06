@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
-sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' $1
+sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' $1
+sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication yes/' $1
 
 sshd -t
 

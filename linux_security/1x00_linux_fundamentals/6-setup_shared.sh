@@ -1,3 +1,2 @@
 #!/bin/bash
-mkdir -p /shared/devs && chown root:developers /shared/devs && chmod 2770 /shared/devs && chmod +t /shared/devs
-
+mkdir -p $1 && chown root:$2 $1 && chmod 2770 $1 && chmod +t $1

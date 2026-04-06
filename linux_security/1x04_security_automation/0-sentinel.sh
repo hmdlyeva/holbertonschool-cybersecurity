@@ -17,4 +17,3 @@ source "$CONFIG_FILE"
 [ -z "${FILES_TO_WATCH+x}" ] && { echo "ERROR: FILES_TO_WATCH not defined"; exit 1; }
 
 echo "Configuration loaded successfully"
-
